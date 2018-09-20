@@ -1,0 +1,59 @@
+/*UNIONS & JOINS*/ 
+
+/*Find a list of employee and branch names*/
+/*Rule 1- Same no. of columns in select statement
+Rule 2-Same data type*/
+
+SELECT first_name
+FROM employee
+UNION
+SELECT branch_name
+FROM branch;
+
+/*Find a list of all clients & branch supplier names*/
+
+SELECT client_name
+FROM client
+UNION
+SELECT supplier_name
+FROM branch_supplier;
+
+/*Find a list of all money spent or earned by the company*/
+
+SELECT total_sales
+FROM works_with 
+UNION
+SELECT salary
+FROM employee;
+
+SELECT SUM(total_sales) AS 'Total money spent/earned by the company'
+FROM works_with 
+UNION
+SELECT SUM(salary) 
+FROM employee;
+---------------------------------------------------------------------------------------
+/*JOINS*/
+
+INSERT INTO branch VALUES(4, 'Buffalo', NULL, NULL);
+/*Find all branches and the names of their managers*/
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+JOIN branch
+ON employee.emp_id=branch.mgr_id;
+
+/*4 types of JOIN: 
+INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN 
+*/
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+LEFT JOIN branch
+ON employee.emp_id=branch.mgr_id;/*LEFT table is employee*/
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+RIGHT JOIN branch
+ON employee.emp_id=branch.mgr_id;/*RIGHT table is branch*/
+
+/*THE END*/

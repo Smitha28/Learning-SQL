@@ -1,0 +1,17 @@
+[
+  {
+    "student_id": 1,
+    "name": "Jack",
+    "major": "Biology"
+  },
+  {
+    "student_id": 3,
+    "name": "Claire",
+    "major": "Chemistry"
+  },
+  {
+    "student_id": 4,
+    "name": "Jack",
+    "major": "Biology"
+  }
+]
